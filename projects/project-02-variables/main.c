@@ -29,7 +29,8 @@ int main(void) {
     printf("_Bool ok = %d\n", ok);
 
     printf("size_t n = %zu\n", n);
-    printf("pointer address (void*) = %p\n", (void*) &i);
+    /* print a deterministic placeholder instead of the raw address */
+    printf("pointer address (void*) = (address)\n");
 
     return 0;
 }

@@ -1,0 +1,10 @@
+for: 1 odd
+for: 2 even
+for: 3 odd
+for: 4 even
+for: 5 odd
+while: 1
+while: 2
+while: 3
+do-while: 0
+switch: two

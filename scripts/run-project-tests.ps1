@@ -1,3 +1,46 @@
+Set-StrictMode -Version Latest
+
+Push-Location -Path (Join-Path $PSScriptRoot '..\projects')
+$failures = @()
+$dirs = Get-ChildItem -Directory -Filter 'project-*' | Sort-Object Name
+
+foreach ($d in $dirs) {
+    $proj = $d.FullName
+    Write-Host "==> Testing $($d.Name)"
+    Push-Location $proj
+    try {
+        if (Test-Path './build.ps1') {
+            # build and run, capture stdout
+            & ./build.ps1 *> run.actual.txt
+            if (-not (Test-Path './expected.txt')) {
+                Write-Host "  - missing expected.txt, skipping comparison"
+            } else {
+                $actual = Get-Content ./run.actual.txt -Raw
+                $expected = Get-Content ./expected.txt -Raw
+                if ($actual -ne $expected) {
+                    Write-Host "  - MISMATCH"
+                    $diff = Compare-Object -ReferenceObject ($expected -split "\r?\n") -DifferenceObject ($actual -split "\r?\n") -SyncWindow 0
+                    $diff | ForEach-Object { Write-Host "    $_" }
+                    $failures += $d.Name
+                } else {
+                    Write-Host "  - OK"
+                }
+            }
+        } else {
+            Write-Host "  - no build.ps1, skipped"
+        }
+    } finally { Pop-Location }
+}
+
+Pop-Location
+
+if ($failures.Count -ne 0) {
+    Write-Host "\nTest failures: $($failures -join ', ')" -ForegroundColor Red
+    exit 1
+} else {
+    Write-Host "\nAll project outputs match expected.txt" -ForegroundColor Green
+    exit 0
+}
 param(
     [string]$ProjectPath
 )

@@ -1,0 +1,6 @@
+Hello, World
+length = 12
+copy: Hello, World
+tok: red
+tok: green
+tok: blue
