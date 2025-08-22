@@ -3,17 +3,29 @@
 #include <stdint.h>
 #include <string.h>
 
-/* project-08-structs: composite types, initializers, and small helper functions. */
+/*
+ * project-08-structs: shows composite types (structs) and initialization.
+ *
+ * A struct groups related data into one object. Use fixed-size char arrays for
+ * simple text fields in beginner examples. For production code prefer safer
+ * patterns and validate lengths when copying strings.
+ */
+
 struct Person { char name[50]; int age; };
 struct Point { int x, y; };
 struct Node { struct Point pos; int id; };
 
-static void print_node(const struct Node *n) {
+/* typedef is common to simplify type names: */
+typedef struct Node Node;
+
+static void print_node(const Node *n) {
+    /* Use -> to access fields through a pointer. */
     printf("Node id=%d pos=(%d,%d)\n", n->id, n->pos.x, n->pos.y);
 }
 
 int main(void) {
     struct Person p;
+    /* snprintf truncates and always null-terminates when space permits. */
     snprintf(p.name, sizeof p.name, "%s", "Alice");
     p.age = 30;
     printf("Name: %s, Age: %d\n", p.name, p.age);

@@ -3,18 +3,35 @@
 #include <stdint.h>
 #include "math.h"  /* declares add3; math.c must be compiled and linked with this file */
 
-/* project-04-functions: demonstrate decomposition into functions and use of
- * headers for declarations. */
+/* Note: headers should have include guards (#ifndef/#define) to avoid double
+ * inclusion. `math.h` here declares add3; the definition lives in math.c. */
+
+/*
+ * project-04-functions: decomposition and header usage.
+ *
+ * This lesson shows:
+ *  - splitting functionality into smaller functions for clarity and reuse.
+ *  - using a header file (`math.h`) to declare functions implemented elsewhere.
+ *  - `static` functions with internal linkage used only in this translation unit.
+ */
+
+/* small helper: double the input. Marked static because it's local to this file. */
 static int times_two(int x) { return x * 2; }
+
+/* swap two integers in-place via pointers. Demonstrates passing by reference. */
 static void swap_int(int *a, int *b) { int tmp = *a; *a = *b; *b = tmp; }
 
+/* Example typedef often used with structs and APIs: */
+typedef int myint_t;
+
 int main(void) {
+    /* add3 is declared in math.h and defined in math.c which the build links. */
     printf("add3(1,2,3) = %d\n", add3(1, 2, 3));
     printf("times_two(4) = %d\n", times_two(4));
 
     int x = 5, y = 7;
     printf("before swap: x=%d y=%d\n", x, y);
-    swap_int(&x, &y);
+    swap_int(&x, &y); /* pass addresses so swap_int can modify caller's variables */
     printf("after swap: x=%d y=%d\n", x, y);
 
     return 0;
