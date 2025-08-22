@@ -16,8 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup PowerShell
-      uses: actions/setup-powershell@v2
+    # PowerShell is available by default on both Ubuntu and Windows runners
 
     - name: Validate expected.txt files
       run: pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/validate-expected.ps1
