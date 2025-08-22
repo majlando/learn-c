@@ -22,7 +22,7 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
 
     Push-Location $p.FullName
     try {
-    $out = "lesson-$($p.Name)"
+    $out = "project-$($p.Name)"
     # Normalize file lists and detect test.c/main.c
     $allFiles = $files
     $hasTest = Test-Path (Join-Path $p.FullName 'test.c')
@@ -72,7 +72,7 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
                 $actualText = ($actualText -split "`n") | Where-Object { $_ -notmatch '^(address|Address) of' } | ForEach-Object { $_ } | Out-String
                 $actualText = $actualText -replace "`r", ''
                 $actualText = $actualText.TrimEnd("`n","`r")
-                $actualFile = Join-Path $p.FullName 'actual.txt'
+                $actualFile = Join-Path $p.FullName 'output.txt'
                 $actualText | Out-File -FilePath $actualFile -Encoding utf8
 
                 $expectedFile = Join-Path $p.FullName 'expected.txt'
@@ -90,13 +90,13 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
                         Write-Host "Match: output == expected"
                     }
                 } else {
-                    Write-Host "No expected.txt; wrote actual.txt"
+                    Write-Host "No expected.txt; wrote output.txt"
                 }
 
-                    # If per-lesson tests exist under ../tests/<lesson>/ or projects/<lesson>/tests/, run them now
+                    # If per-project tests exist under ../tests/<project>/ or projects/<project>/tests/, run them now
                     $testsDirRepo = Join-Path $Root "tests\$($p.Name)"
                     $testsDirLocal = Join-Path $p.FullName 'tests'
-                    $testRunner = Join-Path $PSScriptRoot 'run-lesson-tests.ps1'
+                    $testRunner = Join-Path $PSScriptRoot 'run-project-tests.ps1'
                     if (Test-Path $testsDirRepo) {
                         Write-Host "Found repo-level tests for $($p.Name); running test harness"
                         pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -LessonPath $p.FullName
@@ -143,7 +143,7 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
             $actual = & $exe 2>&1
 
             $actualText = ($actual -join "`n") -replace "`r", ''
-            $actualFile = Join-Path $p.FullName 'actual.txt'
+            $actualFile = Join-Path $p.FullName 'output.txt'
             $actualText | Out-File -FilePath $actualFile -Encoding utf8
 
             $expectedFile = Join-Path $p.FullName 'expected.txt'
@@ -160,7 +160,7 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
                     Write-Host "Match: output == expected"
                 }
             } else {
-                Write-Host "No expected.txt; wrote actual.txt"
+                Write-Host "No expected.txt; wrote output.txt"
             }
 
             if ($hasTest) {

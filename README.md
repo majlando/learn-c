@@ -1,4 +1,4 @@
-Learn C — small, focused C lessons under `projects/`.
+Learn C — small, focused C lessons under `lessons/`.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -18,7 +18,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass ./build-all.ps1
 - Build a single lesson (example):
 
 ```pwsh
-pwsh -NoProfile -ExecutionPolicy Bypass ./projects/project-04-functions/build.ps1
+pwsh -NoProfile -ExecutionPolicy Bypass ./lessons/lesson-04-functions/build.ps1
 ```
 
 What the repo contains
@@ -26,7 +26,7 @@ What the repo contains
 
 Keep in mind the repository focuses on lesson source, per-lesson build scripts, and deterministic expected outputs. Key files and helpers:
 
-- `projects/<project-XX-name>/` — lesson folders containing `main.c`, optional companion `.c` and `.h` files, `build.ps1`, and `expected.txt` or `tests/`.
+- `lessons/<lesson-XX-name>/` — lesson folders containing `main.c`, optional companion `.c` and `.h` files, `build.ps1`, and `expected.txt` or `tests/`.
 - `build-all.ps1` — builds lessons, captures program output to `actual.txt`, and compares to `expected.txt` when present.
 - `scripts/` — safe helpers for validating and cleaning working-tree artifacts (for example `check-no-artifacts.ps1`, `cleanup-artifacts.ps1`, `validate-lessons.ps1`, `run-lesson-tests.ps1`).
 
@@ -34,16 +34,16 @@ Note: previously-available destructive history-rewrite helpers have been removed
 
 Lessons (current)
 -----------------
-- project-01-hello — minimal program and program structure
-- project-02-variables — variables, initialization, printing
-- project-03-control-flow — branching and loops
-- project-04-functions — function decomposition and headers
-- project-05-pointers — pointers and memory layout
-- project-06-strings — C string handling and safe APIs
-- project-07-arrays — arrays and indexing
-- project-08-structs — composite types and initializers
-- project-09-file-io — file I/O and error handling
-- project-10-dynamic-memory — malloc/realloc and safe memory use
+- lesson-01-hello — minimal program and program structure
+- lesson-02-variables — variables, initialization, printing
+- lesson-03-control-flow — branching and loops
+- lesson-04-functions — function decomposition and headers
+- lesson-05-pointers — pointers and memory layout
+- lesson-06-strings — C string handling and safe APIs
+- lesson-07-arrays — arrays and indexing
+- lesson-08-structs — composite types and initializers
+- lesson-09-file-io — file I/O and error handling
+- lesson-10-dynamic-memory — malloc/realloc and safe memory use
 
 Testing and sanitizers
 ----------------------

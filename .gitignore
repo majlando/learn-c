@@ -1,6 +1,6 @@
 # Ignore compiled binaries and common build artifacts
 *.exe
-lesson-temp.exe
+project-temp.exe
 *.o
 *.obj
 *.dll
@@ -41,12 +41,12 @@ bin/
 Thumbs.db
 .DS_Store
 # Ignore generated binaries and logs
-lesson-*
+project-*
 test-*
 project-*-*.exe
 *.exe
 *.log
-actual.txt
+output.txt
 build-*.txt
 build-output.txt
 build-summary.txt

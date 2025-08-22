@@ -12,8 +12,8 @@ test: build
 
 sanitizers:
 	@echo "Running sanitizer-enabled builds for selected lessons..."
-	@set ENABLE_SANITIZERS=1; pwsh -NoProfile -ExecutionPolicy Bypass -File ./projects/project-14-sanitizers/build.ps1
+	@set ENABLE_SANITIZERS=1; pwsh -NoProfile -ExecutionPolicy Bypass -File ./lessons/lesson-14-sanitizers/build.ps1
 
 clean:
 	@echo "Cleaning generated actual.txt files"
-	@Get-ChildItem -Path .\projects -Recurse -Filter actual.txt -File | Remove-Item -Force
+	@Get-ChildItem -Path .\lessons -Recurse -Filter actual.txt -File | Remove-Item -Force

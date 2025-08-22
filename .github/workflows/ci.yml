@@ -32,17 +32,17 @@ jobs:
         run: |
           set -e
           sudo apt-get install -y pwsh
-          pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { ./projects/project-10-dynamic-memory/build.sanitizer.ps1 }" 2>&1 | tee project-10-dynamic-memory.sanitizer.log || true
-          pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { ./projects/project-17-concurrency/build.sanitizer.ps1 }" 2>&1 | tee project-17-concurrency.sanitizer.log || true
-          pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { ./projects/project-17-concurrency/build.tsan.ps1 }" 2>&1 | tee project-17-concurrency.tsan.log || true
+          pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { ./lessons/lesson-10-dynamic-memory/build.sanitizer.ps1 }" 2>&1 | tee lesson-10-dynamic-memory.sanitizer.log || true
+          pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { ./lessons/lesson-17-concurrency/build.sanitizer.ps1 }" 2>&1 | tee lesson-17-concurrency.sanitizer.log || true
+          pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { ./lessons/lesson-17-concurrency/build.tsan.ps1 }" 2>&1 | tee lesson-17-concurrency.tsan.log || true
           # Run per-lesson test harness when available
-          pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-lesson-tests.ps1 -LessonPath ./projects/project-10-dynamic-memory || true
+          pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-lesson-tests.ps1 -LessonPath ./lessons/lesson-10-dynamic-memory || true
         
       - name: Upload sanitizer logs
         uses: actions/upload-artifact@v4
         with:
           name: sanitizer-logs
           path: |
-            project-10-dynamic-memory.sanitizer.log
-            project-17-concurrency.sanitizer.log
-            project-17-concurrency.tsan.log
+              lesson-10-dynamic-memory.sanitizer.log
+              lesson-17-concurrency.sanitizer.log
+              lesson-17-concurrency.tsan.log

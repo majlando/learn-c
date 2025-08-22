@@ -1,13 +1,13 @@
 <#
-Build and validate all lessons under projects/.
+Build and validate all lessons under lessons/.
 
 This script runs each project's `build.ps1` (if present), executes the produced binary or the build target, captures output
 to `actual.txt` inside the project folder, and compares it to `expected.txt` when available.
 #>
-Set-StrictMode -Version Latest
-Push-Location -Path $PSScriptRoot
+$	Set-StrictMode -Version Latest
+$	Push-Location -Path $PSScriptRoot
 
-$projects = Get-ChildItem -Path .\projects -Directory | Sort-Object Name
+$	$projects = Get-ChildItem -Path .\lessons -Directory | Sort-Object Name
 foreach ($p in $projects) {
     Write-Host "\n=== $($p.Name) ==="
     $projDir = Join-Path $p.FullName ''
