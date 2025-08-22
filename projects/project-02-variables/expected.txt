@@ -6,6 +6,7 @@ float f = 1.2345
 double d = 2.718282
 char ch = A, string s = sample
 _Bool ok = 1
+bool ok2 = true
 size_t n = 3
 pointer address (void*) = (address)
 
