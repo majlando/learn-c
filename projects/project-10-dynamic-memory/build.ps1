@@ -1,3 +1,11 @@
+$param = @()
+param([switch]$ClangSanitize)
+
+if ($ClangSanitize) {
+    $env:CC = 'clang'
+    $env:CFLAGS = '-fsanitize=address,undefined -fno-omit-frame-pointer -g -O1 -std=c11 -Wall -Wextra'
+}
+
 $src = 'main.c'
 $folder = Split-Path -Leaf $PSScriptRoot
 $out = "$folder.exe"
