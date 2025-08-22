@@ -93,14 +93,23 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
                     Write-Host "No expected.txt; wrote actual.txt"
                 }
 
-                    # If per-lesson tests exist under ../tests/<lesson>/, run them now
-                    $testsDir = Join-Path $Root "tests\$($p.Name)"
-                    if (Test-Path $testsDir) {
-                        Write-Host "Found tests for $($p.Name); running test harness"
-                        $testRunner = Join-Path $PSScriptRoot 'run-lesson-tests.ps1'
+                    # If per-lesson tests exist under ../tests/<lesson>/ or projects/<lesson>/tests/, run them now
+                    $testsDirRepo = Join-Path $Root "tests\$($p.Name)"
+                    $testsDirLocal = Join-Path $p.FullName 'tests'
+                    $testRunner = Join-Path $PSScriptRoot 'run-lesson-tests.ps1'
+                    if (Test-Path $testsDirRepo) {
+                        Write-Host "Found repo-level tests for $($p.Name); running test harness"
                         pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -LessonPath $p.FullName
                         if ($LASTEXITCODE -ne 0) {
                             Write-Host "Lesson tests failed for $($p.Name)"
+                            $failures += $p.Name
+                        }
+                    }
+                    if (Test-Path $testsDirLocal) {
+                        Write-Host "Found project-local tests for $($p.Name); running test harness"
+                        pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -LessonPath $p.FullName
+                        if ($LASTEXITCODE -ne 0) {
+                            Write-Host "Project-local lesson tests failed for $($p.Name)"
                             $failures += $p.Name
                         }
                     }
