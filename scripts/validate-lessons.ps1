@@ -22,7 +22,8 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
 
     Push-Location $p.FullName
     try {
-    $out = "project-$($p.Name)"
+    # Name the output after the directory (e.g. project-01-hello) to avoid double-prefixing
+    $out = "$($p.Name)"
     # Normalize file lists and detect test.c/main.c
     $allFiles = $files
     $hasTest = Test-Path (Join-Path $p.FullName 'test.c')
@@ -99,7 +100,7 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
                     $testRunner = Join-Path $PSScriptRoot 'run-project-tests.ps1'
                     if (Test-Path $testsDirRepo) {
                         Write-Host "Found repo-level tests for $($p.Name); running test harness"
-                        pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -LessonPath $p.FullName
+                        pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -ProjectPath $p.FullName
                         if ($LASTEXITCODE -ne 0) {
                             Write-Host "Lesson tests failed for $($p.Name)"
                             $failures += $p.Name
@@ -107,7 +108,7 @@ foreach ($p in Get-ChildItem -Directory -Path $ProjectsDir) {
                     }
                     if (Test-Path $testsDirLocal) {
                         Write-Host "Found project-local tests for $($p.Name); running test harness"
-                        pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -LessonPath $p.FullName
+                        pwsh -NoProfile -ExecutionPolicy Bypass -File $testRunner -ProjectPath $p.FullName
                         if ($LASTEXITCODE -ne 0) {
                             Write-Host "Project-local lesson tests failed for $($p.Name)"
                             $failures += $p.Name
