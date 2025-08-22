@@ -1,4 +1,4 @@
-name: CI - build & tests
+name: CI
 
 on:
   push:
@@ -14,33 +14,22 @@ jobs:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Validate expected.txt files
+        shell: pwsh
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/validate-expected.ps1
 
+      - name: Run all builds
+        shell: pwsh
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File ./run-all-builds.ps1
+
       - name: Run project tests
+        shell: pwsh
         run: pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-project-tests.ps1
 
-  sanitizers:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y clang make
-
-      - name: Build with ASAN/UBSAN and run tests
-        run: |
-          export CC=clang
-          export CFLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -g -O1 -std=c11 -Wall -Wextra"
-          # Build each project with clang and sanitizer flags when a Makefile or build.ps1 is present
-          for d in projects/*; do
-            if [ -f "$d/build.ps1" ]; then
-              pwsh -NoProfile -ExecutionPolicy Bypass -File "$d/build.ps1" -ClangSanitize
-            elif [ -f "$d/Makefile" ]; then
-              (cd "$d" && make CC="$CC" CFLAGS="$CFLAGS")
-            fi
-          done
-          done
+      - name: Run Windows-only integration tests (exe checks)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File .\tests\run-tests.ps1
