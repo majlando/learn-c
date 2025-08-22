@@ -1,2 +1,0 @@
-Name: Alice, Age: 30
-Node id=7 pos=(10,20)
