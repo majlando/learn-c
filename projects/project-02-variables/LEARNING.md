@@ -1,5 +1,19 @@
-Improvements for project-02-variables
 
-- Add a short exercise on initializing variables from user input and printing them.
-- Add unit-like test cases under `tests/` for different input permutations.
-- Include a small "common mistakes" section (e.g., uninitialized variables, type mismatches).
+project-02-variables — Goals & improvements
+
+Topics covered
+- Primitive types, initialization, literals, printing with `printf` format specifiers
+
+Learning outcomes
+- Understand storage and basic formatting; select correct format specifier for types.
+
+Exercises
+- Read values from stdin and echo them back with correct formatting.
+- Demonstrate default initialization (local vs static) and print results.
+
+Suggested tests
+- Tests covering integer, floating, and character inputs.
+- Tests for uninitialized variables (demonstration only — undefined behavior).
+
+Further reading
+- `printf` format specifiers, integer conversion, floating-point formatting.

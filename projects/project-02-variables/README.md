@@ -10,3 +10,11 @@ Key points
 
 Hints
 - Try `-Wall` to see warnings for mismatches in format specifiers.
+
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-02-variables.exe main.c`
+- Run: `./project-02-variables.exe`
+
+Exercises
+- Print an unsigned value with `%u` and a `long` with `%ld`.
+- Intentionally mismatch a format specifier and observe the compiler warning.

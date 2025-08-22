@@ -1,3 +1,0 @@
-Exercises
-- Try opening a file that exists and one that doesn't; print `errno` and `strerror(errno)`.
-- Implement a helper that opens a file and prints a helpful error message on failure.

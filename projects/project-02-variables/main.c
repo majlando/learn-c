@@ -23,6 +23,7 @@ int main(void) {
      * %.2f - double with 2 decimals
      * %c - char
      */
+    /* print values in a compact, readable form */
     printf("int a = %d\n", a);
     printf("double b = %.2f\n", b);
     printf("char c = %c\n", c);

@@ -13,3 +13,11 @@ Edge cases
 
 Hints
 - Rewrite the provided `for` loop as an equivalent `while` and `do-while`. Try nested loops and early `break`.
+
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-03-control-flow.exe main.c`
+- Run: `./project-03-control-flow.exe`
+
+Exercises
+- Convert the `for` loop to a `while` and a `do-while`.
+- Add a nested loop that prints a simple multiplication table.

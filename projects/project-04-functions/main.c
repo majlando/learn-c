@@ -12,6 +12,7 @@
 
 int main(void) {
     /* call the function declared in math.h and defined in math.c */
+    /* build system should compile math.c and link the object */
     int s = add3(1, 2, 3);
     printf("1 + 2 + 3 = %d\n", s);
     return 0;

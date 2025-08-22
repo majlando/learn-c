@@ -9,3 +9,11 @@ Key points
 
 Hints
 - Try iterating with pointer arithmetic instead of indexing.
+
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-07-arrays.exe main.c`
+- Run: `./project-07-arrays.exe`
+
+Exercises
+- Rewrite the loop using pointer arithmetic instead of indexing.
+- Create a 2D static array and print its elements.

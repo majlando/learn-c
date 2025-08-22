@@ -14,6 +14,14 @@ Edge cases
 Hints
 - Use sanitizers (ASan/LSan) to detect leaks and OOB accesses during development.
 
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-10-dynamic-memory.exe main.c`
+- Run: `./project-10-dynamic-memory.exe`
+
+Exercises
+- Replace the static allocation pattern with `realloc` to grow the array.
+- Intentionally create a small leak and detect it with AddressSanitizer.
+
 Sanitizer builds
 - A sanitizer build is provided: `build.sanitizer.ps1` which compiles with AddressSanitizer and UBSan flags.
 - Run it on Linux with gcc: `pwsh -NoProfile -ExecutionPolicy Bypass ./build.sanitizer.ps1` then run the produced executable to see sanitizer reports.

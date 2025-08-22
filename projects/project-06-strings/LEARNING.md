@@ -1,5 +1,18 @@
-Improvements for project-06-strings
 
-- Add exercises for string tokenization (`strtok`) and safe copying (`strncpy`/`strlcpy`).
-- Add tests for boundary cases (exact-size buffers, empty strings).
-- Document common security pitfalls (buffer overflow) with examples.
+project-06-strings — Goals & improvements
+
+Topics covered
+- C strings, buffer handling, `strncpy`/`strlcpy`, tokenization, and common pitfalls
+
+Learning outcomes
+- Safely manipulate strings and understand termination and buffer sizes.
+
+Exercises
+- Implement safe copy functions and demonstrate `strtok` usage.
+- Show off-by-one bugs and how to avoid them.
+
+Suggested tests
+- Tests for exact-length buffers, empty strings, and long input.
+
+Further reading
+- Buffer overflows, safe string APIs, and secure coding practices.

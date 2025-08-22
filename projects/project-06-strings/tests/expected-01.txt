@@ -1,0 +1,3 @@
+Hello, World
+length = 12
+copy: Hello, World

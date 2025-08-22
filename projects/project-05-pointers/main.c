@@ -11,7 +11,6 @@ int main(void) {
     /* *p dereferences the pointer to obtain the value stored at that address */
     printf("p points to value = %d\n", *p);
     /* avoid printing raw addresses in lesson output (non-deterministic) */
-    /* address printing removed to keep output deterministic for tests */
 
     return 0;
 }

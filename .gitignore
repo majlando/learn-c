@@ -1,3 +1,25 @@
+# Ignore compiled binaries and common build artifacts
+*.exe
+lesson-temp.exe
+*.o
+*.obj
+*.dll
+*.pdb
+*.ilk
+*.out
+
+# Generated per-lesson outputs (optional)
+# actual.txt
+
+# Editor and OS files
+.vscode/
+.vs/
+*.swp
+Thumbs.db
+.DS_Store
+
+# Node modules
+node_modules/
 # Ignore build artifacts and editor files
 *.exe
 *.o

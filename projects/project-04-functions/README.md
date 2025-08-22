@@ -13,3 +13,11 @@ Edge cases
 
 Hints
 - Add more functions to `math.c` (e.g., multiply, safe_add) and declare them in `math.h`.
+
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-04-functions.exe main.c math.c`
+- Run: `./project-04-functions.exe`
+
+Exercises
+- Add a new function to `math.c` and call it from `main.c`.
+- Experiment with `static` functions and see linker behavior.

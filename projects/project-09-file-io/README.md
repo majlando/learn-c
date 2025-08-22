@@ -9,3 +9,11 @@ Key points
 
 Hints
 - Experiment with `fseek` and `ftell` to determine file size.
+
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-09-file-io.exe main.c`
+- Run: `./project-09-file-io.exe`
+
+Exercises
+- Write and then read a binary file using `fwrite`/`fread`.
+- Use `fseek`/`ftell` to read a file from its middle.

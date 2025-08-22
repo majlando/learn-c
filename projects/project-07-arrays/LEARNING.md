@@ -1,5 +1,15 @@
-Improvements for project-07-arrays
 
-- Add exercises for multidimensional arrays and common operations (sum, average).
-- Add tests around out-of-bounds behavior and safe indexing examples.
-- Show an example comparing arrays vs dynamically allocated memory.
+project-07-arrays — Goals & improvements
+
+Topics covered
+- Single and multidimensional arrays, indexing, pointer/array relationship
+
+Learning outcomes
+- Use arrays safely, understand memory layout and differences from dynamic allocation.
+
+Exercises
+- Implement matrix sum and row/column traversal.
+- Compare static arrays vs dynamic allocation for large sizes.
+
+Suggested tests
+- Tests for boundary indices and multidimensional indexing correctness.

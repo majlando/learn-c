@@ -21,6 +21,7 @@ int main(void) {
     }
     char buf[128];
     while (fgets(buf, sizeof(buf), f)) {
+        /* fgets retains the trailing newline if present; print as-is */
         printf("read: %s", buf);
     }
     fclose(f);

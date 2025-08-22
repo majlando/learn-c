@@ -7,14 +7,22 @@ int main(void) {
     char name[] = "World";       /* compiler-sized array */
 
     /* build greeting safely with snprintf to avoid buffer overruns */
-    snprintf(greeting, sizeof(greeting), "Hello, %s", name);
+    /* build greeting safely with snprintf to avoid buffer overruns */
+    if (snprintf(greeting, sizeof(greeting), "Hello, %s", name) < 0) {
+        /* snprintf failed unexpectedly; print minimal fallback */
+        printf("Hello\n");
+        return 1;
+    }
 
     printf("%s\n", greeting);              /* prints: Hello, World */
     printf("length = %zu\n", strlen(greeting));
 
-    /* copy into another buffer safely using snprintf */
+    /* copy into another buffer safely using snprintf; check return value */
     char buf[20];
-    snprintf(buf, sizeof(buf), "%s", greeting);
+    if (snprintf(buf, sizeof(buf), "%s", greeting) < 0) {
+        printf("copy failed\n");
+        return 1;
+    }
     printf("copy: %s\n", buf);
 
     return 0;

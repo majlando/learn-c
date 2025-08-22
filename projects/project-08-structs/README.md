@@ -9,3 +9,11 @@ Key points
 
 Hints
 - Try creating and returning a struct from a function (by value).
+
+Build & Run
+- Build: `gcc -Wall -Wextra -g -o project-08-structs.exe main.c`
+- Run: `./project-08-structs.exe`
+
+Exercises
+- Use a designated initializer to initialize the `Person` struct.
+- Write a function that accepts a `struct Person *` and updates its fields.

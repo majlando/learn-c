@@ -6,6 +6,7 @@ int main(void) {
     size_t len = sizeof(nums) / sizeof(nums[0]);
 
     for (size_t i = 0; i < len; ++i) {
+        /* print index and value; use %zu for size_t index */
         printf("nums[%zu] = %d\n", i, nums[i]);
     }
 

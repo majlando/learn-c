@@ -3,68 +3,66 @@ Learn C - small incremental projects
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 <!-- CI badge removed or replace OWNER/REPO to enable -->
 
-This workspace contains a set of small, beginner-friendly C projects under `projects/`.
+This repository contains a curated set of small, beginner-friendly C lessons in `projects/`.
 
-Note: This repository has been streamlined to focus on the lesson sources. Older lessons and CI artifacts were removed to keep the learning path concise.
+Repository status
+-----------------
+- The repository was streamlined to focus on a core set of lessons and learning notes. Several advanced lessons were removed to keep the syllabus concise.
+- Remaining lessons are intended as a progressive learning path from basic I/O to memory management and error handling.
 
-Quick start (PowerShell):
+Quick start (PowerShell)
+------------------------
 
-- Build a single project (example):
-  ./projects/project-01-hello/build.ps1
-
-- Build and run all projects (validates output vs expected):
-  ./build-all.ps1
-
-New lesson template and exercises:
-
-- A lesson template is available in `scripts/lesson-template/` -> copy into `projects/project-XX-name/` and edit.
-- Each lesson can include `exercises.txt` with short tasks for learners; many lessons already include them.
-
-
-The CI workflow (`.github/workflows/ci.yml`) runs GCC on Ubuntu and the PowerShell validator on Windows. Locally you can run the validator directly:
+Build a single project (example):
 
 ```pwsh
 # from the repository root
-pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/validate-lessons.ps1
+pwsh -NoProfile -ExecutionPolicy Bypass ./projects/project-01-hello/build.ps1
 ```
 
-Each project contains a `main.c`, `expected.txt`, and `build.ps1` that attempts to use `gcc` or `cl` if available.
-
-
-Building and testing locally
----------------------------
-
-This repository is focused on the lesson sources under `projects/` and includes a simple PowerShell build helper to run lessons locally.
-
-Run the workspace build (PowerShell):
+Build and validate all lessons:
 
 ```pwsh
-# from the repository root
-pwsh -NoProfile -ExecutionPolicy Bypass -File ./build-all.ps1
+pwsh -NoProfile -ExecutionPolicy Bypass ./build-all.ps1
 ```
+
+Run the per-lesson validator (runs a lesson's `build.ps1` then compares output against `tests/` if present):
+
+```pwsh
+pwsh -NoProfile -ExecutionPolicy Bypass ./scripts/run-lesson-tests.ps1 -LessonPath ./projects/project-02-variables
+```
+
+Lesson template and exercises
+-----------------------------
+
+- Copy `scripts/lesson-template/` to create a new lesson folder under `projects/`.
+- Each lesson should include `main.c`, `build.ps1` and `expected.txt` (or `tests/`) for automated checks.
+
+CI and artifact policy
+-----------------------
+
+- A GitHub Actions workflow `.github/workflows/no-artifacts.yml` blocks commits containing common build artifacts such as `*.exe`.
+- The repo includes `scripts/remove-exes-from-history.ps1` and `scripts/run-everything.ps1` to assist with removing committed binaries from history; these are destructive and require `git-filter-repo` (see scripts for usage).
+
+Remaining lessons
+-----------------
+- project-01-hello — minimal program and program structure
+- project-02-variables — variables, initialization, printing
+- project-03-control-flow — branching and loops
+- project-04-functions — function decomposition and headers
+- project-05-pointers — pointers and memory layout
+- project-06-strings — C string handling and pitfalls
+- project-07-arrays — arrays and indexing
+- project-08-structs — composite types and initializers
+- project-09-file-io — file input/output and error handling
+- project-10-dynamic-memory — malloc/realloc and safe memory use
+- project-18-error-handling — error codes, errno, and robust programs
 
 Contributing
 ------------
 
-To add a new lesson, create a new `projects/project-XX-name/` folder containing `main.c`, `build.ps1`, and `expected.txt` (optional). Keep lessons small and self-contained.
+To add a lesson, create `projects/project-XX-name/` with `main.c`, `build.ps1`, and `expected.txt` or add `tests/` for automated cases. Keep lessons small and focused.
 
-Curriculum (revamped)
----------------------
+If you plan to rewrite history to remove committed binaries, follow `scripts/run-everything.ps1` (requires `git-filter-repo`) and coordinate with collaborators.
 
-The repository now includes a full, ordered syllabus covering key C topics. Use `build-all.ps1` to run and validate each lesson.
-
-0. `project-11-compilation` — build stages, preprocess/compile/link
-1. `project-01-hello` — program structure and I/O
-2. `project-12-types` — integer types, promotions, `stdint.h`
-3. `project-03-control-flow` — branching and loops
-4. `project-04-functions` — functions, headers, linkage
-5. `project-05-pointers` — pointers, aliasing, and memory model
-6. `project-06-strings` & `project-07-arrays` — strings and array handling
-7. `project-08-structs` — structs, enums, bitfields
-8. `project-09-file-io` — text/binary I/O and error handling
-9. `project-10-dynamic-memory` & `project-15-data-structures` — malloc/realloc and linked lists
-10. `project-13-preprocessor` — macros and conditional compilation
-11. `project-14-sanitizers` — sanitizers and debugging
-12. `project-16-capstone` — integration capstone (file-based small app)
-
-Each lesson contains `exercises.txt` with suggested practice tasks; some lessons include sanitizer-friendly builds.
+Questions or suggestions are welcome via issues or PRs on the repository.

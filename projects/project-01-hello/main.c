@@ -12,6 +12,7 @@
  */
 int main(void) {
     /* Print a friendly greeting. Learners: try changing the message. */
+    /* keep output deterministic for tests */
     printf("Hello, C learner!\n");
 
     /* Returning 0 signals success; non-zero typically indicates an error. */

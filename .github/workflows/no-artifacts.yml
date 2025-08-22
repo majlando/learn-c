@@ -1,23 +1,27 @@
-name: Block committed build artifacts
+name: No artifacts and build check
 
 on:
   push:
+    branches: [ main ]
   pull_request:
 
 jobs:
-  check-artifacts:
+  check-no-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Fail on tracked build artifacts
+      - uses: actions/checkout@v4
+      - name: Fail if tracked build artifacts exist
         run: |
-          set -eu
-          # Find tracked files that look like build artifacts
-          bad=$(git ls-files '*.exe' '*.o' '*.obj' '*.dll' '*.pdb' || true)
-          if [ -n "${bad}" ]; then
-            echo "Found committed build artifacts:" >&2
-            echo "${bad}" >&2
-            exit 1
+          set -euo pipefail
+          # list tracked files matching common build artifact patterns
+          if git ls-files -- '*.exe' '*.o' '*.obj' '*.dll' '*.pdb' | grep -q '.'; then
+            echo "Tracked build artifacts detected:"; git ls-files -- '*.exe' '*.o' '*.obj' '*.dll' '*.pdb'; exit 1
           fi
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run build-all.ps1
+        shell: pwsh
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File ./build-all.ps1
