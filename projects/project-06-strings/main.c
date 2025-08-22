@@ -16,6 +16,8 @@ int main(void) {
      */
     char greeting[50]; /* writable buffer */
     char name[] = "World";       /* compiler-sized array */
+    /* small tokenizer example input */
+    char csv[] = "red,green,blue";
 
     /* build greeting safely with snprintf to avoid buffer overruns */
     /* build greeting safely with snprintf to avoid buffer overruns */
@@ -35,6 +37,13 @@ int main(void) {
         return 1;
     }
     printf("copy: %s\n", buf);
+
+    /* simple tokenizer demonstration (non-reentrant, fine for examples) */
+    char *tok = strtok(csv, ",");
+    while (tok) {
+        printf("tok: %s\n", tok);
+        tok = strtok(NULL, ",");
+    }
 
     return 0;
 }

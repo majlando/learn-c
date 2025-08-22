@@ -1,3 +1,21 @@
+project-07-arrays
+
+Goals
+- Demonstrate fixed-size arrays, iteration, and the relationship between arrays and pointers.
+
+Topics covered
+- One- and two-dimensional arrays
+- Calculating lengths with sizeof
+- Common off-by-one pitfalls
+
+Examples
+- Iterate a small numeric array and print indices/values.
+
+Exercises
+- Implement a function that sums an array and returns the result.
+
+Suggested tests
+- Boundary tests for index access and multi-dimensional indexing.
 
 project-07-arrays — Goals & improvements
 

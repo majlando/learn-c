@@ -3,6 +3,23 @@ project-08-structs
 Goals
 - Introduce structs, initializing, and accessing fields; show simple aggregation of values.
 
+Topics covered
+- Struct definition, nested structs, designated initializers, and typedefs
+- Memory layout, padding, and sizeof
+
+Examples
+- Create a `Person` struct, initialize fields, and print values deterministically.
+
+Exercises
+- Implement a print/serialize function and demonstrate passing structs by pointer and by value.
+
+Suggested tests
+- Validate printed field values and serialized output.
+project-08-structs
+
+Goals
+- Introduce structs, initializing, and accessing fields; show simple aggregation of values.
+
 What to keep in this lesson
 - A small example constructing a struct and printing its fields for deterministic output.
 
