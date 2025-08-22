@@ -68,3 +68,9 @@ build-summary.txt
 !projects/**/*.h
 !projects/**/sample.txt
 !projects/**/tests/**
+ 
+# Ignore per-project generated outputs and backups
+projects/**/actual.txt
+projects/**/run.actual.txt
+projects/**/*.actual.txt
+projects/**/expected.txt.bak
