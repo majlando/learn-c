@@ -1,0 +1,23 @@
+name: Block committed build artifacts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fail on tracked build artifacts
+        run: |
+          set -eu
+          # Find tracked files that look like build artifacts
+          bad=$(git ls-files '*.exe' '*.o' '*.obj' '*.dll' '*.pdb' || true)
+          if [ -n "${bad}" ]; then
+            echo "Found committed build artifacts:" >&2
+            echo "${bad}" >&2
+            exit 1
+          fi

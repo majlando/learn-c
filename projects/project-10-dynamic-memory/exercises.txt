@@ -1,0 +1,3 @@
+Exercises
+- Replace `malloc` with `calloc` and show the difference in initialization.
+- Expand the array using `realloc` and demonstrate preserving previous contents.

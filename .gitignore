@@ -1,0 +1,39 @@
+# Ignore build artifacts and editor files
+*.exe
+*.o
+*.obj
+*.dll
+*.pdb
+*.out
+*.class
+build/
+bin/
+*.log
+# VS Code
+.vscode/
+# PowerShell temp files
+*.ps1xml
+*.psd1
+*.psm1
+# OS files
+Thumbs.db
+.DS_Store
+# Ignore generated binaries and logs
+lesson-*
+test-*
+project-*-*.exe
+*.exe
+*.log
+actual.txt
+build-*.txt
+build-output.txt
+build-summary.txt
+
+# Ignore editor/OS files
+.vscode/
+*.swp
+.DS_Store
+
+# Keep expected.txt and source files under version control
+!projects/**/expected.txt
+!projects/**/*.c

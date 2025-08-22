@@ -1,0 +1,3 @@
+Exercises
+- Create a function that accepts `struct Person *` and increments the age.
+- Demonstrate initialization with designated initializers and how to copy a struct.

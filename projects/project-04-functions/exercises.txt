@@ -1,0 +1,3 @@
+Exercises
+- Add unit-style tests that call `add3` with negative, zero, and large values and print PASS/FAIL.
+- Create a new function `multiply3` in `math.c` and expose it in `math.h`, then call it from `main.c`.

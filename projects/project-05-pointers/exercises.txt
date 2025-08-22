@@ -1,0 +1,3 @@
+Exercises
+- Demonstrate NULL pointer check and print a message when pointer is NULL.
+- Write a function that takes an `int *` and modifies the caller's variable, then test it.
