@@ -1,20 +1,21 @@
 <#
-Build and validate all lessons under lessons/.
+Build and validate all projects under `projects/`.
 
-This script runs each project's `build.ps1` (if present), executes the produced binary or the build target, captures output
-to `actual.txt` inside the project folder, and compares it to `expected.txt` when available.
+This script runs each project's `build.ps1` (if present), attempts to run the produced
+executable or compiles `main.c` with gcc as a fallback, writes output to `actual.txt`,
+and compares it to `expected.txt` when available.
 #>
-$	Set-StrictMode -Version Latest
-$	Push-Location -Path $PSScriptRoot
+Set-StrictMode -Version Latest
+Push-Location -Path $PSScriptRoot
 
-$	$projects = Get-ChildItem -Path .\lessons -Directory | Sort-Object Name
+$projects = Get-ChildItem -Path .\projects -Directory | Sort-Object Name
 foreach ($p in $projects) {
     Write-Host "\n=== $($p.Name) ==="
     $projDir = Join-Path $p.FullName ''
     $buildScript = Join-Path $projDir 'build.ps1'
     if (Test-Path $buildScript) {
         Write-Host "Running build script: $buildScript"
-        & pwsh -NoProfile -ExecutionPolicy Bypass -File $buildScript
+    & pwsh -NoProfile -ExecutionPolicy Bypass -File $buildScript
     } else {
         Write-Host "No build.ps1 found, skipping build for $($p.Name)"
     }
