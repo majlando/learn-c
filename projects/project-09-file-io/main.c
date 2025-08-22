@@ -2,6 +2,17 @@
 
 /* project-09-file-io: write and read a small file */
 int main(void) {
+    /*
+     * Contract:
+     *  - Inputs: none (writes then reads `sample.txt`)
+     *  - Outputs: lines read from the file printed to stdout
+     *  - Success: creates/reads file and prints contents
+     *  - Error modes: fopen failures (handled with perror)
+     *
+     * Edge cases:
+     *  - File permission errors or missing working directory
+     *  - Buffer size vs. line length (fgets handles trimming)
+     */
     const char *fname = "sample.txt";
 
     /* write to a file */

@@ -3,6 +3,17 @@
 
 /* project-06-strings: basic C strings and common functions. Use safe APIs and check return values. */
 int main(void) {
+    /*
+     * Contract:
+     *  - Inputs: none (uses hard-coded name)
+     *  - Outputs: greeting line, length line, and copy line
+     *  - Success: prints lines and returns 0
+     *  - Error modes: snprintf failure (handled by fallback)
+     *
+     * Edge cases:
+     *  - Buffer truncation if greeting exceeds buffer size (snprintf handles this)
+     *  - strlen result and newline handling
+     */
     char greeting[50]; /* writable buffer */
     char name[] = "World";       /* compiler-sized array */
 

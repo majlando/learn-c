@@ -11,6 +11,17 @@
  *  - `\n` is a newline character (important to flush lines on some systems).
  */
 int main(void) {
+    /*
+     * Contract:
+     *  - Inputs: none (uses constant string)
+     *  - Outputs: one line to stdout: "Hello, C learner!\n"
+     *  - Success: prints greeting and returns 0
+     *  - Error modes: none expected in this simple example
+     *
+     * Edge cases (for learners):
+     *  - Terminal encoding and newline semantics on different platforms
+     *  - Buffering: ensure newline to flush output when necessary
+     */
     /* Print a friendly greeting. Keep output simple and deterministic for automated checks. */
     printf("Hello, C learner!\n");
 

@@ -11,6 +11,17 @@
  */
 
 int main(void) {
+    /*
+     * Contract:
+     *  - Inputs: none (calls add3 with constant arguments)
+     *  - Outputs: one line to stdout showing the sum
+     *  - Success: prints result and returns 0
+     *  - Error modes: linker errors if math.c is not compiled/linked
+     *
+     * Edge cases:
+     *  - Ensure math.c is compiled and linked; watch for mismatched prototypes
+     *  - Integer overflow if add3 arguments are large
+     */
     /* call the function declared in math.h and defined in math.c */
     /* build system should compile math.c and link the object */
     int s = add3(1, 2, 3);

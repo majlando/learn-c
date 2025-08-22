@@ -9,6 +9,18 @@
  *  - precision control for floating point output (e.g., %.2f)
  */
 int main(void) {
+    /*
+     * Contract:
+     *  - Inputs: none (program uses constants)
+     *  - Outputs: three lines to stdout showing an int, a double, and a char
+     *  - Success: prints values and returns 0
+     *  - Error modes: none expected in this simple example
+     *
+     * Edge cases to consider (for learners):
+     *  - Very large integers that overflow `int` (use long/long long)
+     *  - Floating-point formatting and rounding surprises
+     *  - Locale influence on decimal separators (not handled here)
+     */
     /* integer */
     int a = 10;
 

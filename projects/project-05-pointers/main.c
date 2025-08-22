@@ -4,6 +4,17 @@
  * project-05-pointers: basic pointer usage. Keep output deterministic for tests.
  */
 int main(void) {
+    /*
+     * Contract:
+     *  - Inputs: none (uses local variable `x`)
+     *  - Outputs: two lines to stdout showing x and *p
+     *  - Success: prints values and returns 0
+     *  - Error modes: none expected; pointer is valid for local variable
+     *
+     * Edge cases:
+     *  - Dangling pointers if pointer refers to freed memory (not here)
+     *  - Printing raw addresses is non-deterministic and avoided
+     */
     int x = 42;      /* a normal integer */
     int *p = &x;     /* p stores the address of x */
 
