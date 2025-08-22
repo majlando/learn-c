@@ -1,6 +1,21 @@
 project-05-pointers
 
 Goals
+- Introduce pointers, the address-of (`&`) and dereference (`*`) operators, pointer arithmetic, and passing pointers to functions.
+
+Topics covered
+- Pointers to single variables and arrays
+- Pointer arithmetic and iteration
+- Const correctness and avoiding UB
+
+Examples
+- Show dereferencing, pointer arithmetic over a small array, and passing a pointer to a helper.
+
+Exercises
+- Implement a function that swaps two integers via pointers.
+project-05-pointers
+
+Goals
 - Introduce pointers, address-of operator (`&`), dereference (`*`), and pointer arithmetic.
 
 What to keep in this lesson

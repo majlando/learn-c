@@ -10,6 +10,13 @@
  *  - `printf` writes formatted text to standard output (the console).
  *  - `\n` is a newline character (important to flush lines on some systems).
  */
+
+/* small helper to show basic function structure */
+static void print_version(void) {
+    const int major = 1, minor = 0;
+    printf("lesson 01 version %d.%d\n", major, minor);
+}
+
 int main(void) {
     /*
      * Contract:

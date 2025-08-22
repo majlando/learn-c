@@ -1,3 +1,26 @@
+project-01-hello
+
+Goals
+- Introduce program structure, includes, `main`, and basic I/O with `printf`.
+
+Topics covered
+- Program entry point and return codes
+- Basic formatted output with `printf`
+- Small utility functions and organization of examples for learners
+
+Examples in this lesson
+- Minimal hello program that prints a greeting
+- A tiny helper function showing how to split work into functions
+
+Exercises
+- Modify the helper to accept a name and format the greeting.
+- Add a version number constant and print it with formatting.
+
+Suggested tests
+- Run the program and verify the greeting and the helper output.
+
+Further reading
+- Chapter: program structure, functions, and basic I/O.
 
 project-01-hello — Goals & improvements
 

@@ -40,6 +40,15 @@ int main(void) {
     printf("double b = %.2f\n", b);
     printf("char c = %c\n", c);
 
-    /* Learners: try printing unsigned values with %u, long with %ld, and size_t with %zu. */
+    /* platform-sized type */
+    size_t n = 100;
+    printf("size_t n = %zu\n", n);
+
+    /* additional examples: unsigned and long */
+    unsigned int u = 300u;
+    long L = 100000L;
+    printf("unsigned u = %u, long L = %ld\n", u, L);
+
+    /* Learners: try printing other types and observe format mismatches. */
     return 0;
 }

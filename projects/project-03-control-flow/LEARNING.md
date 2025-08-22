@@ -1,6 +1,25 @@
 project-03-control-flow
 
 Goals
+- Teach branching and loops: `if`/`else`, `switch`, `for`, `while`, and loop control.
+
+Topics covered
+- Conditional logic and compound boolean expressions
+- Counting and condition-driven loops
+- `break` and `continue` usages
+
+Examples
+- A for-loop showing odd/even classification
+- A small switch example demonstrating discrete branches
+
+Exercises
+- Write a loop that prints only prime numbers in a small range.
+
+Suggested tests
+- Ensure loop output matches expected sequences for given bounds.
+project-03-control-flow
+
+Goals
 - Demonstrate conditional statements (`if`/`else`, `switch`) and loops (`for`, `while`).
 
 What to keep in this lesson

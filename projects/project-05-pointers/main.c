@@ -23,5 +23,12 @@ int main(void) {
     printf("p points to value = %d\n", *p);
     /* avoid printing raw addresses in lesson output (non-deterministic) */
 
+    /* pointer arithmetic example: iterate an array via pointer */
+    int nums[] = {1, 2, 3};
+    int *q = nums; /* points to first element */
+    for (size_t i = 0; i < sizeof(nums)/sizeof(nums[0]); ++i) {
+        printf("nums[%zu] = %d\n", i, *(q + i));
+    }
+
     return 0;
 }

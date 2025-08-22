@@ -1,3 +1,22 @@
+project-02-variables
+
+Goals
+- Explain variable types, formatting, and when to choose sizes (int, long, unsigned, float/double).
+
+Topics covered
+- Integer types, signed vs unsigned
+- Floating point formatting and precision
+- Characters and ASCII printing
+- size_t and platform-sized types
+
+Examples
+- Print an int, a double with precision, a char, and a size_t value.
+
+Exercises
+- Change formats to print unsigned and long types, and compare outputs.
+
+Suggested tests
+- Verify formatting for different specifiers and precision.
 
 project-02-variables — Goals & improvements
 

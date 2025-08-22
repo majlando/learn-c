@@ -26,5 +26,10 @@ int main(void) {
     /* build system should compile math.c and link the object */
     int s = add3(1, 2, 3);
     printf("1 + 2 + 3 = %d\n", s);
+
+    /* demonstrate a local static helper for learners */
+    static int times_two(int x) { return x * 2; }
+    printf("2 * 4 = %d\n", times_two(4));
+
     return 0;
 }
