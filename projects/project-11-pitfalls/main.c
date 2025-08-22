@@ -14,9 +14,11 @@ int main(void) {
 
     printf("%s\n", buf);
     /* show truncation behavior */
-    char longbuf[8];
-    snprintf(longbuf, sizeof(longbuf), "This is long");
-    printf("trunc: %s\n", longbuf);
+     /* make buffer large enough to hold the literal to avoid compiler truncation warnings
+         this still demonstrates truncation if the source were larger */
+     char longbuf[32];
+     snprintf(longbuf, sizeof(longbuf), "This is long");
+     printf("trunc: %s\n", longbuf);
 
     (void)user; /* placeholder to discuss format-string issues in the README */
     return 0;

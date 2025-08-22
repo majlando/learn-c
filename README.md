@@ -1,68 +1,85 @@
-Learn C - small incremental projects
+Learn C — progressive, small C lessons
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-<!-- CI badge removed or replace OWNER/REPO to enable -->
 
-This repository contains a curated set of small, beginner-friendly C lessons in `projects/`.
+This repository contains a set of small, beginner-friendly C lessons under `projects/`. Each lesson is intentionally compact and designed to be easy to build, run, and test.
 
-Repository status
------------------
-- The repository was streamlined to focus on a core set of lessons and learning notes. Several advanced lessons were removed to keep the syllabus concise.
-- Remaining lessons are intended as a progressive learning path from basic I/O to memory management and error handling.
+Quick start
+-----------
 
-Quick start (PowerShell)
-------------------------
+Use PowerShell on Windows or a POSIX shell on other platforms. From the repository root:
 
-Build a single project (example):
-
-```pwsh
-# from the repository root
-pwsh -NoProfile -ExecutionPolicy Bypass ./projects/project-01-hello/build.ps1
-```
-
-Build and validate all lessons:
+- Build and validate all lessons (PowerShell):
 
 ```pwsh
 pwsh -NoProfile -ExecutionPolicy Bypass ./build-all.ps1
 ```
 
-Run the per-lesson validator (runs a lesson's `build.ps1` then compares output against `tests/` if present):
+- Build a single lesson (example):
 
 ```pwsh
-pwsh -NoProfile -ExecutionPolicy Bypass ./scripts/run-lesson-tests.ps1 -LessonPath ./projects/project-02-variables
+pwsh -NoProfile -ExecutionPolicy Bypass ./projects/project-01-hello/build.ps1
 ```
 
-Lesson template and exercises
------------------------------
+How lessons are organized
+-------------------------
 
-- Copy `scripts/lesson-template/` to create a new lesson folder under `projects/`.
-- Each lesson should include `main.c`, `build.ps1` and `expected.txt` (or `tests/`) for automated checks.
+Each lesson folder typically contains:
+- `main.c` — the lesson source
+- `build.ps1` — short build script used by `build-all.ps1`
+- `expected.txt` or `tests/` — expected output (used by the validator)
+
+To add a new lesson, copy `scripts/lesson-template/` and include `main.c`, `build.ps1`, and an `expected.txt` or a `tests/` directory.
 
 CI and artifact policy
 -----------------------
 
-- A GitHub Actions workflow `.github/workflows/no-artifacts.yml` blocks commits containing common build artifacts such as `*.exe`.
-- The repo includes `scripts/remove-exes-from-history.ps1` and `scripts/run-everything.ps1` to assist with removing committed binaries from history; these are destructive and require `git-filter-repo` (see scripts for usage).
+- A GitHub Actions workflow `.github/workflows/no-artifacts.yml` already blocks common committed build artifacts (for example `*.exe`).
+- There are helper scripts in `scripts/` to assist with cleaning up committed binaries; see the scripts for usage and warnings — some operations are destructive and require `git-filter-repo`.
 
-Remaining lessons
+Lessons (current)
 -----------------
 - project-01-hello — minimal program and program structure
 - project-02-variables — variables, initialization, printing
 - project-03-control-flow — branching and loops
 - project-04-functions — function decomposition and headers
 - project-05-pointers — pointers and memory layout
-- project-06-strings — C string handling and pitfalls
+- project-06-strings — C string handling and safe APIs
 - project-07-arrays — arrays and indexing
 - project-08-structs — composite types and initializers
-- project-09-file-io — file input/output and error handling
+- project-09-file-io — file I/O and error handling
 - project-10-dynamic-memory — malloc/realloc and safe memory use
-- project-18-error-handling — error codes, errno, and robust programs
+- project-11-pitfalls — short, safe demos of common C pitfalls
+
+Testing and sanitizers
+----------------------
+
+- `build-all.ps1` runs each lesson's `build.ps1`, executes the produced program (or compiles `main.c` with `gcc`), writes program output to `actual.txt`, and compares it to `expected.txt` (or `tests/` when present).
+- Lessons that provide `build.sanitizer.ps1` can be built with AddressSanitizer/UBSan locally or in CI to detect memory issues. Example:
+
+```pwsh
+pwsh -NoProfile -ExecutionPolicy Bypass ./projects/project-11-pitfalls/build.sanitizer.ps1
+./projects/project-11-pitfalls/project-11-pitfalls.sanitized.exe
+```
 
 Contributing
 ------------
 
-To add a lesson, create `projects/project-XX-name/` with `main.c`, `build.ps1`, and `expected.txt` or add `tests/` for automated cases. Keep lessons small and focused.
+Please follow these guidelines when contributing lessons:
 
-If you plan to rewrite history to remove committed binaries, follow `scripts/run-everything.ps1` (requires `git-filter-repo`) and coordinate with collaborators.
+- Keep lessons small and focused (one or two small learning points).
+- Include `expected.txt` or a `tests/` directory with deterministic expected output so CI can validate changes.
+- Prefer safe APIs (e.g., `snprintf`) and check return values in examples.
+- If your lesson demonstrates a pitfall, include a safe version and guidance for using sanitizers.
 
-Questions or suggestions are welcome via issues or PRs on the repository.
+If you plan a destructive operation such as rewriting history to remove committed build artifacts, coordinate with collaborators and follow `scripts/run-everything.ps1` instructions carefully.
+
+Support & questions
+-------------------
+
+Open an issue or a pull request — maintainers will review and provide feedback.
+
+License
+-------
+
+MIT
