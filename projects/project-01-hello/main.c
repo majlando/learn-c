@@ -32,6 +32,9 @@ int main(void) {
     /* Print a friendly greeting. Keep output simple and deterministic for automated checks. */
     printf("Hello, C learner!\n");
 
+    /* demonstrate a tiny helper function */
+    print_version();
+
     /* 0 indicates success to the operating system. */
     return 0;
 }
