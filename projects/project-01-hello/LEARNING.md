@@ -1,16 +1,12 @@
 
-project-01-hello
+
+## project-01-hello
 
 Goal
-- Run a minimal C program that prints a single deterministic line.
+- Show a minimal C program with deterministic output (prints "Hello, world!").
 
 What to learn
-- `main` and return codes
-- `#include <stdio.h>` and `printf`
+- main, return codes, includes, and printf.
 
 Exercises
-- Change the printed string.
-- Read a name with `fgets` and print a greeting.
-
-Note
-- Keep output deterministic for automated tests.
+- Change the string or read input with fgets and greet the user.

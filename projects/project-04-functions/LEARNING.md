@@ -1,15 +1,11 @@
 
-project-04-functions
+## project-04-functions
 
 Goal
-- Demonstrate functions, headers, and pointer parameters.
+- Demonstrate functions, headers, static linkage, and pointer parameters.
 
 What to learn
-- Declaration vs definition, `static` linkage
-- Passing pointers to modify caller-owned variables
+- Declaration vs definition, separate compilation, static functions, and passing pointers to modify caller variables.
 
 Exercises
-- Add simple checks for `add3` and implement `swap_int`.
-
-Note
-- Compile `math.c` together with `main.c` to avoid linker errors.
+- Add checks to add3, create more helper functions, and practice separate compilation.

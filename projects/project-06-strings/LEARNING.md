@@ -1,15 +1,14 @@
-
-
-project-06-strings
+## project-06-strings
 
 Goal
-- Show C strings, safe copying, and tokenization.
+- Safe string formatting, length checks, copying, and tokenization.
 
 What to learn
-- `snprintf`, `strlen`, and tokenization (`strtok`/`strtok_s`)
+- Use snprintf for bounded writes, strlen for lengths, and strtok vs strtok_s.
 
 Exercises
-- Write a reentrant tokenizer and test with long inputs.
+-+- Implement a reentrant tokenizer and test with long inputs.
 
 Note
 - Prefer bounded APIs to avoid buffer overflows.
+Exercises

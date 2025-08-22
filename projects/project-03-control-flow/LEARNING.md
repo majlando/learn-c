@@ -1,16 +1,11 @@
 
-project-03-control-flow
+## project-03-control-flow
 
 Goal
-- Show common control flow: `for`, `while`, `do`/`while`, `if` and `switch`.
+- Show for/while/do-while, if, and switch using deterministic examples.
 
 What to learn
-- Loop forms and their use-cases
-- `switch` statements and fall-through behavior
+- Loop forms and conditionals; switch usage and fall-through cautions.
 
 Exercises
-- Convert a `for` loop to `while` and `do`/`while`.
-- Implement a small sieve or prime-checker for practice.
-
-Note
-- Keep outputs deterministic for automated tests.
+- Convert loops between forms and implement a small prime-checker.

@@ -1,15 +1,15 @@
 
-project-07-arrays
+## project-07-arrays
 
 Goal
-- Demonstrate 1D and 2D arrays and iteration.
+- Demonstrate 1D and 2D arrays and iteration using sizeof-based lengths.
 
 What to learn
-- Array indexing and `sizeof`-based length calculations
-- Multi-dimensional array layout and iteration
+- Compute lengths with sizeof, traverse 2D arrays, and avoid off-by-one errors.
 
 Exercises
-- Implement sum of an array and traverse a 2D matrix.
+- Implement array sum and matrix traversal.
 
 Note
-- Watch for off-by-one errors when iterating.
+- Avoid off-by-one errors.
+Exercises

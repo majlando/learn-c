@@ -40,9 +40,7 @@ bin/
 # OS files
 Thumbs.db
 .DS_Store
-# Ignore generated binaries and logs
-project-*
-test-*
+# Ignore generated binaries and logs (keep generic binary patterns)
 project-*-*.exe
 *.exe
 *.log
@@ -59,3 +57,14 @@ build-summary.txt
 # Keep expected.txt and source files under version control
 !projects/**/expected.txt
 !projects/**/*.c
+
+# Allow project source and helper files under projects/ (keep binaries ignored)
+!projects/
+!projects/**/build.ps1
+!projects/**/LEARNING.md
+!projects/**/README.md
+!projects/**/main.c
+!projects/**/*.c
+!projects/**/*.h
+!projects/**/sample.txt
+!projects/**/tests/**

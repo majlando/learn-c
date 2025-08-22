@@ -1,17 +1,11 @@
 
-project-02-variables
+## project-02-variables
 
 Goal
-- Demonstrate common C data types and how to print them.
+- Show common scalar types and correct printf specifiers.
 
 What to learn
-- signed/unsigned integers, `long`, `long long`
-- `float` vs `double`, `char` and C-strings
-- `_Bool`, `size_t`, and pointer-sized integers
+- signed/unsigned integers, long/long long, float/double, char/strings, _Bool, size_t.
 
 Exercises
-- Read values from stdin and print them with correct format specifiers.
-- Show what happens with a wrong `printf` specifier (explain UB).
-
-Note
-- Always match `printf` format specifiers to the argument types.
+- Read values and print them with proper format specifiers; try fixed-width types.

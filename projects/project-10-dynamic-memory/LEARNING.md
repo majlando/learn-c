@@ -1,17 +1,16 @@
 project-10-dynamic-memory
 
 Goal
-- Introduce `malloc`/`realloc`/`free` and common failure modes.
+- Demonstrate malloc/realloc/free with simple checks and deterministic output.
 
 What to learn
-- Correct sizing, checking return values, and freeing memory
-- `realloc` strategies to avoid leaks
+- Allocate arrays, check for NULL, free memory, and use realloc safely.
 
 Exercises
-- Implement a dynamic array with push/pop and test resizing and failure handling.
+- Resize arrays with realloc while preserving contents and handling failures.
 
 Build & test
 - `build.ps1` and `build.sanitizer.ps1` (local sanitizers) are provided.
 
 Note
-- Check allocation results and keep examples deterministic for CI.
+## project-10-dynamic-memory

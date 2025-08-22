@@ -1,40 +1,22 @@
-project-09-file-io
-
-Goals
-- Demonstrate basic file read/write using `fopen`, `fprintf`, `fgets`, and `fclose`.
-
-Topics covered
-- Text file I/O, error handling with `perror` and `errno`
-- Binary I/O considerations and portable newline handling
-
-Exercises
-- Modify the program to append rather than overwrite; handle missing files gracefully.
-- Add a small binary read/write exercise using a simple struct array.
-
-Build & test
-- `build.ps1` compiles and runs; the program creates `sample.txt` during execution and prints its contents.
-
-Error handling
-- Use `errno` and `strerror(errno)` to provide helpful messages on failure. Add tests for permission errors.
-
-```markdown
-project-09-file-io
+## project-09-file-io
 
 Goal
-- Demonstrate basic text file I/O with error checks.
+- Demonstrate basic text file I/O with simple, deterministic output and clear error checks.
 
 What to learn
-- `fopen` modes, `fprintf`/`fgets`, checking `ferror`
-- Use `errno`/`perror` for helpful diagnostics
+- fopen modes: "w" to create/overwrite, "a" to append, "r" to read.
+- fprintf for formatted writes; fgets for bounded, line-oriented reads.
+- Check fopen return values and use perror/errno for diagnostics.
+- Use ferror after reads to detect I/O errors.
 
 Exercises
-- Modify the program to append instead of overwrite.
-- Add a small binary read/write example using a struct array.
+- Change the example to append instead of overwrite.
+- Persist a small struct using fwrite/fread and validate it after reading.
 
-Note
-- Keep file contents deterministic for automated tests.
+Build & test
+- `build.ps1` compiles and runs; the program writes `sample.txt` then prints its contents.
+- Keep output deterministic so tests can compare stdout to expected output.
 
-```
 Notes
-
-- Keep file contents deterministic for tests.
+- Prefer text I/O for simple lessons; show binary I/O as an exercise.
+- `build.ps1` compiles and runs; the program writes `sample.txt` then prints its contents.
