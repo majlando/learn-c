@@ -27,5 +27,9 @@ int main(void) {
 
     /* always free allocated memory */
     free(arr);
+    /*
+     * Note: To practice resizing, use `realloc` carefully and always check for NULL
+     * before overwriting the original pointer to avoid leaks on failure.
+     */
     return 0;
 }

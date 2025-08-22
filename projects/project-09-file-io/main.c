@@ -37,5 +37,11 @@ int main(void) {
     }
     fclose(f);
 
+    /*
+     * Note: To demonstrate binary I/O, you can write a small struct to a .bin file
+     * using fwrite/fread and then verify contents. This example keeps behavior
+     * deterministic and focuses on text I/O so tests remain stable.
+     */
+
     return 0;
 }

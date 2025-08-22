@@ -1,6 +1,20 @@
 project-10-dynamic-memory
 
 Goals
+- Introduce dynamic allocation with `malloc`/`realloc` and `free`, and common failure modes.
+
+Topics covered
+- Correct allocation sizing, checking return values, and freeing memory
+- Resizing with `realloc` and strategies to avoid leaks
+
+Exercises
+- Implement a simple dynamic array with push/pop and test resizing.
+
+Build & test
+- `build.sanitizer.ps1` can be used locally to run with sanitizers for memory bugs.
+project-10-dynamic-memory
+
+Goals
 - Introduce dynamic allocation with `malloc` and `free`, and emphasize correct allocation sizes.
 
 What to keep in this lesson
