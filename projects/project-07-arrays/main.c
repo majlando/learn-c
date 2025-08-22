@@ -28,5 +28,13 @@ int main(void) {
 
     /* small hint: when passing `nums` to a function you would also pass `len`. */
 
+    /* Bitwise flags example: define and test simple flags. */
+    const unsigned FLAG_A = 1u << 0; /* 0b001 */
+    const unsigned FLAG_B = 1u << 1; /* 0b010 */
+    const unsigned FLAG_C = 1u << 2; /* 0b100 */
+    unsigned flags = FLAG_A | FLAG_C; /* set A and C */
+    printf("FLAG_A set? %s\n", (flags & FLAG_A) ? "yes" : "no");
+    printf("FLAG_B set? %s\n", (flags & FLAG_B) ? "yes" : "no");
+
     return 0;
 }

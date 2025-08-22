@@ -6,6 +6,17 @@
 /* Note: headers should have include guards (#ifndef/#define) to avoid double
  * inclusion. `math.h` here declares add3; the definition lives in math.c. */
 
+/* Example macro: simple square. Prefer inline functions for type safety, but
+ * macros are common in legacy C. */
+#define SQR(x) ((x) * (x))
+
+/* Example include-guard pattern (for use in header files):
+ * #ifndef EXAMPLE_H
+ * #define EXAMPLE_H
+ * // declarations
+ * #endif // EXAMPLE_H
+ */
+
 /*
  * project-04-functions: decomposition and header usage.
  *
@@ -24,10 +35,19 @@ static void swap_int(int *a, int *b) { int tmp = *a; *a = *b; *b = tmp; }
 /* Example typedef often used with structs and APIs: */
 typedef int myint_t;
 
+/* function-pointer typedef and example */
+typedef int (*int_unary_fn)(int);
+
 int main(void) {
     /* add3 is declared in math.h and defined in math.c which the build links. */
     printf("add3(1,2,3) = %d\n", add3(1, 2, 3));
     printf("times_two(4) = %d\n", times_two(4));
+    /* call times_two through a function pointer to demonstrate syntax */
+    int_unary_fn fn = times_two;
+    printf("fn(times_two)(4) = %d\n", fn(4));
+
+    /* use the macro example */
+    printf("SQR(3) = %d\n", SQR(3));
 
     int x = 5, y = 7;
     printf("before swap: x=%d y=%d\n", x, y);

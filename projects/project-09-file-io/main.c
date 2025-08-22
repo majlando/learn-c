@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <errno.h>
+#include <string.h>
 
 /*
  * project-09-file-io: basic file writing and reading with error checks.
@@ -31,7 +33,11 @@ int main(void) {
     /* Open for reading and print each line. */
     f = fopen(fname, "r");
     if (!f) {
+        /* perror prints a human-readable error message based on errno */
         perror("fopen read");
+        /* Example: show errno value and strerror for learners (only on error) */
+        int err = errno;
+        fprintf(stderr, "errno=%d (%s)\n", err, strerror(err));
         return 1;
     }
     char buf[128];

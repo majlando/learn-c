@@ -32,5 +32,9 @@ int main(void) {
 
     struct Node n = {.pos = {10, 20}, .id = 7};
     print_node(&n);
+    /* enum example: named integral constants */
+    enum Color { RED = 0, GREEN = 1, BLUE = 2 };
+    enum Color c = GREEN;
+    printf("Color enum value = %d\n", c);
     return 0;
 }
