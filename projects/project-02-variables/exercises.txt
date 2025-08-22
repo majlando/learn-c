@@ -1,3 +1,0 @@
-Exercises
-- Show the difference between signed and unsigned by assigning a negative value to an unsigned variable and printing it.
-- Experiment with format specifier mismatches (int vs long) and observe compiler warnings with -Wall.

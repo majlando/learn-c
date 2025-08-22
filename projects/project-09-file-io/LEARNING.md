@@ -1,3 +1,16 @@
+project-09-file-io
+
+Goals
+- Demonstrate basic file read/write using fopen, fprintf, fgets, and fclose.
+
+What to keep in this lesson
+- Use a small known filename and deterministic content; keep sample files under version control if necessary.
+
+Exercises
+- Modify to append instead of overwrite; read files line-by-line and handle errors.
+
+Build & test
+- `build.ps1` compiles and runs; the program creates `sample.txt` during execution.
 Improvements for project-09-file-io
 
 - Add exercises to read/write binary files and to handle file-not-found gracefully.

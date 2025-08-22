@@ -1,3 +1,0 @@
-Exercises
-- Rewrite the loop to use pointer arithmetic instead of indexing.
-- Create a 2D array and print it row by row; explain memory layout.

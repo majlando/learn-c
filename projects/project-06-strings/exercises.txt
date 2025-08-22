@@ -1,3 +1,0 @@
-Exercises
-- Demonstrate `strncpy` safely and discuss its pitfalls; show how to null-terminate explicitly.
-- Compare two strings using `strcmp` and handle case-insensitive compare with `strcasecmp` (platform permitting).

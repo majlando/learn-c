@@ -1,9 +1,0 @@
-Basic exercises
-- Change the loop bounds and print numbers divisible by 3 between 1..30.
-- Implement a `while` that reads integers until 0 is entered, then prints their sum.
-
-Edge / defensive coding
-- Add input validation for the above program: ignore negative numbers and non-numeric input.
-Exercises
-- Rewrite the for-loop as a while-loop and a do-while-loop.
-- Write a function to print all prime numbers up to N and test it for N=30.

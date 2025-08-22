@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/* project-06-strings: basic C strings and common functions */
+/* project-06-strings: basic C strings and common functions. Use safe APIs and check return values. */
 int main(void) {
     char greeting[50]; /* writable buffer */
     char name[] = "World";       /* compiler-sized array */

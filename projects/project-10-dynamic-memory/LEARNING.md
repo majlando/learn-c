@@ -1,3 +1,16 @@
+project-10-dynamic-memory
+
+Goals
+- Introduce dynamic allocation with `malloc` and `free`, and emphasize correct allocation sizes.
+
+What to keep in this lesson
+- Small dynamic examples with deterministic contents that can be validated in CI.
+
+Exercises
+- Demonstrate realloc, detect allocation failures, and avoid leaks.
+
+Build & test
+- `build.ps1` supports a sanitizer build via `build.sanitizer.ps1` for checking memory errors locally.
 Improvements for project-10-dynamic-memory
 
 - Add exercises that intentionally leak memory and use sanitizers to find them (optional).

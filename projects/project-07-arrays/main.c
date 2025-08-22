@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* project-07-arrays: fixed-size arrays and iteration */
+/* project-07-arrays: fixed-size arrays and iteration. Keep arrays small and output deterministic. */
 int main(void) {
     int nums[] = {10, 20, 30, 40, 50};
     size_t len = sizeof(nums) / sizeof(nums[0]);

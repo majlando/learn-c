@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /*
- * project-05-pointers: basic pointer usage.
+ * project-05-pointers: basic pointer usage. Keep output deterministic for tests.
  */
 int main(void) {
     int x = 42;      /* a normal integer */

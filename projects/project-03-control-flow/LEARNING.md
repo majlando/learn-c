@@ -1,3 +1,19 @@
+project-03-control-flow
+
+Goals
+- Demonstrate conditional statements (`if`/`else`, `switch`) and loops (`for`, `while`).
+
+What to keep in this lesson
+- A small, deterministic program that prints a known sequence so automated tests can verify output.
+
+Exercises
+- Change the loop bounds, add early returns, or convert a `for` loop into a `while` loop.
+
+Build & test
+- Use the included `build.ps1` to compile and run; CI compares program output to the expected result.
+
+Further reading
+- Control flow chapter; practice problems on nested loops and short-circuit evaluation.
 
 project-03-control-flow — Goals & improvements
 

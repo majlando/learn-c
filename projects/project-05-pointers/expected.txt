@@ -1,2 +1,0 @@
-x = 42
-p points to value = 42

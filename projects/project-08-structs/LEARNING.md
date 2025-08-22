@@ -1,3 +1,16 @@
+project-08-structs
+
+Goals
+- Introduce structs, initializing, and accessing fields; show simple aggregation of values.
+
+What to keep in this lesson
+- A small example constructing a struct and printing its fields for deterministic output.
+
+Exercises
+- Add functions that accept structs by value and by pointer; explore sizeof and alignment.
+
+Build & test
+- Use `build.ps1` to compile and run the example.
 
 project-08-structs — Goals & improvements
 

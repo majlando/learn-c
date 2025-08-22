@@ -1,3 +1,19 @@
+project-05-pointers
+
+Goals
+- Introduce pointers, address-of operator (`&`), dereference (`*`), and pointer arithmetic.
+
+What to keep in this lesson
+- Clear examples showing pointer usage; avoid UB and keep output deterministic.
+
+Exercises
+- Convert array indexing to pointer arithmetic; write functions that accept pointers.
+
+Build & test
+- Use `build.ps1` to compile and run; outputs are compared in CI.
+
+Further reading
+- Pointer pitfalls, ownership, and lifetime.
 
 project-05-pointers — Goals & improvements
 

@@ -1,3 +1,0 @@
-Exercises
-- Modify the program to accept a name from `argv` and greet the user by name.
-- Print program invocation count (use argc) and return non-zero when no name provided.

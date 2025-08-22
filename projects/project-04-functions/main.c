@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "math.h"  /* declares add3 */
+#include "math.h"  /* declares add3; math.c must be compiled and linked with this file */
 
 /*
  * project-04-functions: demonstrate separate compilation units.

@@ -11,10 +11,9 @@
  *  - `\n` is a newline character (important to flush lines on some systems).
  */
 int main(void) {
-    /* Print a friendly greeting. Learners: try changing the message. */
-    /* keep output deterministic for tests */
+    /* Print a friendly greeting. Keep output simple and deterministic for automated checks. */
     printf("Hello, C learner!\n");
 
-    /* Returning 0 signals success; non-zero typically indicates an error. */
+    /* 0 indicates success to the operating system. */
     return 0;
 }
