@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 
 /* project-10-dynamic-memory: safe use of malloc/realloc/free and simple checks. */

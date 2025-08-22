@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <stddef.h>
 
 /* project-05-pointers: addresses, dereference, pointer arithmetic and safety notes. */

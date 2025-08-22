@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 /* project-09-file-io: demonstrate writing and reading files and basic error handling. */
 int main(void) {

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include "math.h"  /* declares add3; math.c must be compiled and linked with this file */
 
 /* project-04-functions: demonstrate decomposition into functions and use of

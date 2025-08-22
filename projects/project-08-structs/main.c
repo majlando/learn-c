@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 
 /* project-08-structs: composite types, initializers, and small helper functions. */

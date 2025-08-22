@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 /* project-02-variables: demonstrate scalar types, printing, and basic conversions. */
 int main(void) {

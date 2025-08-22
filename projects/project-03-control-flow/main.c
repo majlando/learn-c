@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 /* project-03-control-flow: examples of loops, conditionals, and switch. */
+ #include <stdlib.h>
+ #include <stdint.h>
+
 int main(void) {
     for (int i = 1; i <= 5; ++i) {
         printf("for: %d %s\n", i, (i % 2) ? "odd" : "even");

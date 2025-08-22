@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <stddef.h>
 
 /* project-07-arrays: 1D and 2D array examples and sizeof-based lengths. */

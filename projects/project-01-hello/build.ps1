@@ -1,4 +1,3 @@
-$param = @()
 param([switch]$ClangSanitize)
 
 if ($ClangSanitize) {
