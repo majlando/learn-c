@@ -1,7 +1,12 @@
-Set-StrictMode -Version Latest
+param(
+    [string]$ProjectsRoot = (Join-Path $PSScriptRoot '..\projects')
+)
 
-Push-Location -Path (Join-Path $PSScriptRoot '..\projects')
-$failures = @()
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
+Push-Location -Path (Resolve-Path $ProjectsRoot)
+$failures = [System.Collections.Generic.List[string]]::new()
 $dirs = Get-ChildItem -Directory -Filter 'project-*' | Sort-Object Name
 
 foreach ($d in $dirs) {
@@ -10,35 +15,56 @@ foreach ($d in $dirs) {
     Push-Location $proj
     try {
         if (Test-Path './build.ps1') {
-            # build and run, capture stdout
-            & ./build.ps1 *> run.actual.txt
+            # run build script and capture stdout/stderr to run.actual.txt (UTF8)
+            try {
+                & pwsh -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 *>&1 | Out-File -FilePath run.actual.txt -Encoding UTF8
+            } catch {
+                Write-Host "  - build failed: $($_.Exception.Message)" -ForegroundColor Red
+                $failures.Add($d.Name)
+                continue
+            }
+
             if (-not (Test-Path './expected.txt')) {
                 Write-Host "  - missing expected.txt, skipping comparison"
+                continue
+            }
+
+                # Read and normalize line endings: collapse any run of newlines to single LF, trim trailing newlines; use UTF8 explicitly
+                $rawActual = Get-Content -Raw -Encoding UTF8 ./run.actual.txt
+                $rawExpected = Get-Content -Raw -Encoding UTF8 ./expected.txt
+                $normActual = [regex]::Replace($rawActual, '(\r\n|\r|\n)+', "`n").TrimEnd("`n")
+                $normExpected = [regex]::Replace($rawExpected, '(\r\n|\r|\n)+', "`n").TrimEnd("`n")
+
+            if ($normActual -ne $normExpected) {
+                Write-Host "  - MISMATCH" -ForegroundColor Yellow
+                # Split normalized content on any newline sequence (CRLF, LF, CR)
+                $expLines = [regex]::Split($normExpected, '\r\n|\r|\n')
+                $actLines = [regex]::Split($normActual, '\r\n|\r|\n')
+                # Remove trailing empty lines from both arrays to avoid false mismatches due to extra blank lines
+                while ($expLines.Count -gt 0 -and ($expLines[-1] -match '^[\s]*$')) { $expLines = $expLines[0..($expLines.Count-2)] }
+                while ($actLines.Count -gt 0 -and ($actLines[-1] -match '^[\s]*$')) { $actLines = $actLines[0..($actLines.Count-2)] }
+                $diff = Compare-Object -ReferenceObject $expLines -DifferenceObject $actLines -SyncWindow 0
+                $diff | ForEach-Object { Write-Host "    $_" }
+                $failures.Add($d.Name)
             } else {
-                $actual = Get-Content ./run.actual.txt -Raw
-                $expected = Get-Content ./expected.txt -Raw
-                if ($actual -ne $expected) {
-                    Write-Host "  - MISMATCH"
-                    $diff = Compare-Object -ReferenceObject ($expected -split "\r?\n") -DifferenceObject ($actual -split "\r?\n") -SyncWindow 0
-                    $diff | ForEach-Object { Write-Host "    $_" }
-                    $failures += $d.Name
-                } else {
-                    Write-Host "  - OK"
-                }
+                Write-Host "  - OK" -ForegroundColor Green
             }
         } else {
             Write-Host "  - no build.ps1, skipped"
         }
+    } catch {
+        Write-Host "  - error testing $($d.Name): $($_.Exception.Message)" -ForegroundColor Red
+        $failures.Add($d.Name)
     } finally { Pop-Location }
 }
 
 Pop-Location
 
 if ($failures.Count -ne 0) {
-    Write-Host "\nTest failures: $($failures -join ', ')" -ForegroundColor Red
+    Write-Host "`nTest failures: $($failures -join ', ')" -ForegroundColor Red
     exit 1
 } else {
-    Write-Host "\nAll project outputs match expected.txt" -ForegroundColor Green
+    Write-Host "`nAll project outputs match expected.txt" -ForegroundColor Green
     exit 0
 }
 param(

@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
-/* Strings: formatting, length, copy, tokenization (deterministic). */
+/* project-06-strings: safe string formatting, length, and tokenization examples. */
 int main(void) {
     char greeting[50];
     char name[] = "World";
     char csv[] = "red,green,blue";
 
-    if (snprintf(greeting, sizeof greeting, "Hello, %s", name) < 0) return 1;
+    if (snprintf(greeting, sizeof greeting, "Hello, %s", name) < 0) {
+        return 1;
+    }
 
     printf("%s\n", greeting);
     printf("length = %zu\n", strlen(greeting));
@@ -22,7 +24,10 @@ int main(void) {
     while (tok) { printf("tok: %s\n", tok); tok = strtok_s(NULL, ",", &saveptr); }
 #else
     char *tok = strtok(csv, ",");
-    while (tok) { printf("tok: %s\n", tok); tok = strtok(NULL, ","); }
+    while (tok) {
+        printf("tok: %s\n", tok);
+        tok = strtok(NULL, ",");
+    }
 #endif
 
     return 0;

@@ -1,14 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Dynamic memory: malloc/realloc/free with checks. */
+/* project-10-dynamic-memory: safe use of malloc/realloc/free and simple checks. */
 int main(void) {
     size_t n = 5;
     int *arr = malloc(n * sizeof *arr);
-    if (!arr) { fprintf(stderr, "malloc failed\n"); return 1; }
+    if (!arr) {
+        fprintf(stderr, "malloc failed\n");
+        return 1;
+    }
 
-    for (size_t i = 0; i < n; ++i) arr[i] = (int)((i + 1) * 10);
-    for (size_t i = 0; i < n; ++i) printf("arr[%zu] = %d\n", i, arr[i]);
+    for (size_t i = 0; i < n; ++i) {
+        arr[i] = (int)((i + 1) * 10);
+    }
+    for (size_t i = 0; i < n; ++i) {
+        printf("arr[%zu] = %d\n", i, arr[i]);
+    }
 
     free(arr);
     return 0;

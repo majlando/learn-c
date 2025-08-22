@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "math.h"  /* declares add3; math.c must be compiled and linked with this file */
 
-/* Functions: local helpers and an externally compiled function (add3). */
+/* project-04-functions: demonstrate decomposition into functions and use of
+ * headers for declarations. */
 static int times_two(int x) { return x * 2; }
 static void swap_int(int *a, int *b) { int tmp = *a; *a = *b; *b = tmp; }
 

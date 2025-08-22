@@ -4,4 +4,3 @@ copy: Hello, World
 tok: red
 tok: green
 tok: blue
-

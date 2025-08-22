@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Variables: common scalar types and printf specifiers. */
+/* project-02-variables: demonstrate scalar types, printing, and basic conversions. */
 int main(void) {
     int i = -42;
     unsigned int ui = 42u;
@@ -16,6 +16,7 @@ int main(void) {
     _Bool ok = 1;
     size_t n = 3;
     intptr_t ip = (intptr_t) &i; /* demo only; avoid in production */
+    (void)ip; /* silence unused-variable warnings in tutorial code */
 
     printf("int i = %d\n", i);
     printf("unsigned ui = %u\n", ui);
@@ -29,7 +30,7 @@ int main(void) {
     printf("_Bool ok = %d\n", ok);
 
     printf("size_t n = %zu\n", n);
-    /* print a deterministic placeholder instead of the raw address */
+    /* print a deterministic placeholder instead of a raw address */
     printf("pointer address (void*) = (address)\n");
 
     return 0;

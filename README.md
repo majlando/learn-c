@@ -1,3 +1,4 @@
+<!-- Top-level README: brief repo purpose and how to build lessons -->
 Learn C — small, focused C lessons under `projects/`.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)

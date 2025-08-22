@@ -5,6 +5,9 @@ param(
 # Cleanup generated artifacts across projects. By default runs as a dry-run and lists
 # candidate files. Pass -Force to actually delete.
 
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
 $projects = Get-ChildItem -Directory -Path (Join-Path $PSScriptRoot '..\projects')
 foreach ($p in $projects) {
     Write-Host "Inspecting $($p.Name)"
@@ -21,7 +24,7 @@ foreach ($p in $projects) {
             Write-Host "  No common artifacts found for $($p.Name)"
         } else {
             Write-Host "  Candidate deletions:"
-            $toRemove | ForEach-Object { Write-Host "    $_.FullName" }
+            $toRemove | ForEach-Object { Write-Host ("    " + $_.FullName) }
             if ($Force) {
                 $toRemove | Remove-Item -Force -ErrorAction SilentlyContinue
                 Write-Host "  Deleted above items."

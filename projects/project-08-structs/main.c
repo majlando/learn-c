@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/* Structs: define, init, access fields, and nested struct example. */
-#include <stdio.h>
-#include <string.h>
-
+/* project-08-structs: composite types, initializers, and small helper functions. */
 struct Person { char name[50]; int age; };
 struct Point { int x, y; };
 struct Node { struct Point pos; int id; };

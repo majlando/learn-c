@@ -1,7 +1,3 @@
-main.c:18:14: warning: unused variable 'ip' [-Wunused-variable]
-   18 |     intptr_t ip = (intptr_t) &i; /* demo only; avoid in production */
-      |              ^~
-1 warning generated.
 int i = -42
 unsigned ui = 42
 long l = 100000
@@ -12,3 +8,4 @@ char ch = A, string s = sample
 _Bool ok = 1
 size_t n = 3
 pointer address (void*) = (address)
+

@@ -8,6 +8,9 @@ and compares it to `expected.txt` when available.
 Set-StrictMode -Version Latest
 Push-Location -Path $PSScriptRoot
 
+# Notes: this script is intentionally conservative. It runs each project's build
+# script if present and falls back to compiling `main.c` with gcc for quick checks.
+
 $projects = Get-ChildItem -Path .\projects -Directory | Sort-Object Name
 foreach ($p in $projects) {
     Write-Host "\n=== $($p.Name) ==="
@@ -34,6 +37,7 @@ foreach ($p in $projects) {
     $actualFile = Join-Path $projDir 'actual.txt'
     if ($cmd) {
         Write-Host "Running: $cmd"
+        # Redirect both stdout and stderr to the actual file for deterministic comparison
         & $cmd *>$actualFile
     } else {
         # If there's no exe, try running 'main.c' with gcc if available

@@ -4,6 +4,9 @@ Run from the repository root:
   pwsh -NoProfile -ExecutionPolicy Bypass ./scripts/validate-lessons.ps1
 #>
 
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
 $Root = Split-Path -Parent $PSScriptRoot
 $ProjectsDir = Join-Path $Root 'projects'
 
