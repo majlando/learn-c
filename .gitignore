@@ -1,5 +1,14 @@
 # Ignore built executables in project folders
 project-*/project-*
+# Executables named after the project directory (e.g. project-01-hello/project-01-hello)
+project-*/project-*
+# General local build output named 'hello' or the project name
+project-*/hello
+project-*/project-*
+
+# Demo output files
+sample.txt
+user.txt
 
 # Common build artifacts
 *.o

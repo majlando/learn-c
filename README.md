@@ -20,17 +20,17 @@ Build and run
 To compile and run a single lesson (example: project-01-hello):
 
 ```bash
-gcc -std=c11 -Wall -Wextra -o projects/project-01-hello/hello projects/project-01-hello/main.c
-./projects/project-01-hello/hello
+gcc -std=c11 -Wall -Wextra -o project-01-hello/project-01-hello project-01-hello/main.c
+./project-01-hello/project-01-hello
 ```
 
 To compile all lessons quickly (creates one executable per lesson):
 
 ```bash
-for d in projects/*; do
+for d in project-*; do
   if [ -f "$d/main.c" ]; then
     name=$(basename "$d")
-    gcc -std=c11 -Wall -Wextra -o "projects/$name/$name" "$d/main.c" || echo "compile failed: $d"
+    gcc -std=c11 -Wall -Wextra -o "$d/$name" "$d/main.c" || echo "compile failed: $d"
   fi
 done
 ```
@@ -38,7 +38,7 @@ done
 Quick syntax check (no binaries):
 
 ```bash
-for f in projects/*/main.c; do
+for f in project-*/main.c; do
   echo "Checking: $f"
   gcc -std=c11 -Wall -Wextra -fsyntax-only "$f"
 done
