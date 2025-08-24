@@ -1,4 +1,5 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
@@ -45,5 +46,37 @@ int main(void) {
     }
 #endif
 
+=======
+#include <string.h>
+
+/*
+ * Project 06: Strings
+ * Demonstrates string declaration, length, copying, and concatenation in C.
+ * Strings are arrays of char ending with '\0'.
+ */
+
+int main(void) {
+    char s1[20] = "hello";
+    printf("string: %s\nlength: %zu\n", s1, strlen(s1));
+    // String copying
+    char s2[20];
+    strcpy(s2, s1); // copy s1 to s2
+    printf("copied string: %s\n", s2);
+    // String concatenation
+    strcat(s1, " world");
+    printf("concatenated string: %s\n", s1);
+    // Note: Always ensure enough space for copying/concatenation to avoid overflow.
+    // Input example: read a string from the user
+    char user_str[20];
+    printf("Enter a word (max 19 chars): ");
+    if (fgets(user_str, sizeof(user_str), stdin) == NULL) {
+        fprintf(stderr, "Error reading input.\n");
+        return 1;
+    }
+    size_t len = strlen(user_str);
+    if (len > 0 && user_str[len-1] == '\n') user_str[len-1] = '\0';
+    printf("You entered: %s\n", user_str);
+    // Best practice: Always check buffer sizes and input validity to avoid overflow and bugs.
+>>>>>>> ebc12b1 (Initial commit: update lessons and README with input/output examples, modularity, and best practices)
     return 0;
 }

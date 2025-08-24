@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * project-01-hello: Minimal C program.
  *
@@ -23,5 +24,29 @@ int main(void) {
     puts("Hello, world!");
 
     /* Returning 0 indicates success. Non-zero values are error codes. */
+=======
+#include <stdio.h>
+
+/*
+ * Project 01: Hello World
+ * Demonstrates a minimal C program that prints a message to the console.
+ * Compile: gcc main.c -o hello
+ * Run:     ./hello
+ */
+
+int main(void) {
+    // Best practice: Always check the return value of input/output functions for errors.
+    char name[50];
+    printf("Enter your name: ");
+    if (fgets(name, sizeof(name), stdin) == NULL) {
+        // Error handling: input failed
+        fprintf(stderr, "Error reading input.\n");
+        return 1;
+    }
+    // Remove newline if present
+    size_t len = strlen(name);
+    if (len > 0 && name[len-1] == '\n') name[len-1] = '\0';
+    printf("Hello, %s!\n", name);
+>>>>>>> ebc12b1 (Initial commit: update lessons and README with input/output examples, modularity, and best practices)
     return 0;
 }

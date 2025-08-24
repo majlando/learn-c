@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * project-03-control-flow: loops, conditionals, and switch statements.
  *
@@ -49,5 +50,79 @@ int main(void) {
         break;
     }
 
+=======
+#include <stdio.h>
+
+/*
+ * Project 03: Control Flow
+ * Demonstrates loops (for, while, do-while), conditionals, bitwise operations, and switch statements.
+ */
+
+int main(void) {
+    // For loop: repeat 3 times
+    for (int i = 0; i < 3; ++i) {
+        printf("for: i = %d\n", i);
+    }
+    // While loop: repeat while j < 3
+    int j = 0;
+    while (j < 3) {
+        printf("while: j = %d\n", j);
+        j++;
+    }
+    // Do-while loop: always runs at least once
+    int k = 0;
+    do {
+        printf("do-while: k = %d\n", k);
+        k++;
+    } while (k < 1);
+    // If/else condition: compare x and y
+    int x = 5, y = 3;
+    if (x > y) {
+        printf("%d is greater than %d\n", x, y);
+    } else {
+        printf("%d is not greater than %d\n", x, y);
+    }
+    // Bitwise operations: set and test flags
+    unsigned int flags = 0;
+    flags |= 1u << 0; // set bit 0
+    flags |= 1u << 2; // set bit 2
+    printf("flags: %u\n", flags);
+    printf("bit 0 set? %s\n", (flags & (1u << 0)) ? "yes" : "no");
+    printf("bit 1 set? %s\n", (flags & (1u << 1)) ? "yes" : "no");
+    printf("bit 2 set? %s\n", (flags & (1u << 2)) ? "yes" : "no");
+    // Switch statement: select case based on value
+    int v = 2;
+    switch (v) {
+        case 1:
+            printf("switch: one\n");
+            break;
+        case 2:
+            printf("switch: two\n");
+            break;
+        default:
+            printf("switch: other\n");
+            break;
+    }
+    // Comments: For/while/do-while are common loop types. Bitwise ops are used for flags. Switch selects among cases.
+    // Input example: let user choose a value for switch
+    printf("Enter a value (1 or 2): ");
+    int user_v;
+    if (scanf("%d", &user_v) != 1) {
+        fprintf(stderr, "Invalid input.\n");
+        return 1;
+    }
+    switch (user_v) {
+        case 1:
+            printf("User switch: one\n");
+            break;
+        case 2:
+            printf("User switch: two\n");
+            break;
+        default:
+            printf("User switch: other\n");
+            break;
+    }
+    // Best practice: Always validate user input and handle errors gracefully.
+>>>>>>> ebc12b1 (Initial commit: update lessons and README with input/output examples, modularity, and best practices)
     return 0;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <stdlib.h>
 #include <stdint.h>
 #include "math.h"  /* declares add3; math.c must be compiled and linked with this file */
@@ -54,5 +55,43 @@ int main(void) {
     swap_int(&x, &y); /* pass addresses so swap_int can modify caller's variables */
     printf("after swap: x=%d y=%d\n", x, y);
 
+=======
+#include "math.h"
+
+/*
+ * Project 04: Functions
+ * Demonstrates defining and using functions with parameters, return values, and void functions.
+ * Best practice: Use header files for function prototypes to improve modularity and maintainability.
+ */
+
+// Function returning a value
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function with multiple parameters
+int multiply(int a, int b, int c) {
+    return a * b * c;
+}
+
+// Void function
+void print_sum(int a, int b) {
+    printf("sum of %d and %d is %d\n", a, b, a + b);
+}
+
+int main(void) {
+    // User input example
+    int x, y, z;
+    printf("Enter three integers: ");
+    if (scanf("%d %d %d", &x, &y, &z) != 3) {
+        fprintf(stderr, "Invalid input.\n");
+        return 1;
+    }
+    printf("add(%d, %d) = %d\n", x, y, add(x, y));
+    printf("multiply(%d, %d, %d) = %d\n", x, y, z, multiply(x, y, z));
+    print_sum(x, y);
+    printf("add3(%d, %d, %d) = %d\n", x, y, z, add3(x, y, z));
+    // Best practice: Always validate user input and handle errors gracefully.
+>>>>>>> ebc12b1 (Initial commit: update lessons and README with input/output examples, modularity, and best practices)
     return 0;
 }

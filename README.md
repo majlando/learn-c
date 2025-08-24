@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Top-level README: brief repo purpose and how to build lessons -->
 Learn C — small, focused C lessons under `projects/`.
 
@@ -71,5 +72,52 @@ Open an issue or a pull request and maintainers will review it.
 
 License
 -------
+=======
+# Learn C — Small, Focused C Lessons
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+This repository contains compact, beginner-friendly C lessons. Each lesson is self-contained with source files so it's easy to build and run locally.
+
+## Quick Start
+
+- Each project is in its own folder under `projects/` and contains C source files (`main.c`, and sometimes additional `.c` or `.h` files).
+- To build and run a lesson, use your C compiler (e.g., `gcc main.c -o main && ./main`).
+- No build scripts or test artifacts are included; only source code and this README remain.
+
+## What the Repo Contains
+
+- `projects/<project-XX-name>/` — project folders containing `main.c` and optional companion `.c` and `.h` files.
+- `README.md` — this file, with an overview and project list.
+
+## Projects (Current)
+
+Each project demonstrates a key C concept. Most now include user input/output examples, improved comments, and best practices for error handling and memory safety.
+
+- **project-01-hello** — minimal program, program structure, user input
+- **project-02-variables** — variables, initialization, printing, user input
+- **project-03-control-flow** — branching, loops, user-driven switch
+- **project-04-functions** — function decomposition, headers, modularity, user input
+- **project-05-pointers** — pointers, memory layout, user-driven array modification
+- **project-06-strings** — C string handling, safe APIs, user input
+- **project-07-arrays** — arrays, indexing, user-driven modification
+- **project-08-structs** — composite types, initializers, user-driven struct update
+- **project-09-file-io** — file I/O, error handling, user-driven file writing
+- **project-10-dynamic-memory** — malloc/realloc, safe memory use, user-driven allocation
+
+## Contributing
+
+When contributing lessons:
+- Keep lessons small and focused (one or two learning points).
+- Prefer safe APIs (e.g., `snprintf`) and check return values.
+- Add comments explaining why certain practices are important (e.g., error handling, memory safety).
+- Use header files for function prototypes and modularity where appropriate.
+
+## Support & Questions
+
+Open an issue or a pull request and maintainers will review it.
+
+## License
+>>>>>>> ebc12b1 (Initial commit: update lessons and README with input/output examples, modularity, and best practices)
 
 MIT

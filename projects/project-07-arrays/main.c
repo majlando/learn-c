@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -36,5 +37,36 @@ int main(void) {
     printf("FLAG_A set? %s\n", (flags & FLAG_A) ? "yes" : "no");
     printf("FLAG_B set? %s\n", (flags & FLAG_B) ? "yes" : "no");
 
+=======
+
+#include <stdio.h>
+
+/*
+ * Project 07: Arrays
+ * Demonstrates array declaration, bounds, and passing arrays to functions.
+ * Note: Accessing out-of-bounds is undefined behavior in C.
+ */
+
+void print_array(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+}
+int main(void) {
+    int nums[] = {1, 2, 3};
+    int size = sizeof(nums) / sizeof(nums[0]);
+    print_array(nums, size);
+    // Array bounds: size is 3, valid indices are 0, 1, 2
+    // Input example: let user set a value in the array
+    int idx, val;
+    printf("Enter index (0-2) and value: ");
+    if (scanf("%d %d", &idx, &val) != 2 || idx < 0 || idx >= size) {
+        fprintf(stderr, "Invalid input or index out of bounds.\n");
+        return 1;
+    }
+    nums[idx] = val;
+    print_array(nums, size);
+    // Best practice: Always validate user input and check array bounds.
+>>>>>>> ebc12b1 (Initial commit: update lessons and README with input/output examples, modularity, and best practices)
     return 0;
 }
