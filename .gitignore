@@ -1,0 +1,13 @@
+# Ignore built executables in project folders
+project-*/project-*
+
+# Common build artifacts
+*.o
+*.a
+*.so
+*.out
+
+# Temporary/editor files
+*.swp
+*.swo
+.DS_Store
