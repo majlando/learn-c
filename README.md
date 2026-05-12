@@ -48,8 +48,3 @@ Notes
 
 - Many lessons include small interactive prompts (stdin). When running in automated environments, either provide input or remove/disable those prompts.
 - Examples favor safe APIs (snprintf, fgets) and basic validation to be suitable for teaching.
-
-Next steps
-
-- Add per-lesson README or tests if you want runnable checks for CI.
-- Open a PR with these changes or let me create a branch and push if you want.
